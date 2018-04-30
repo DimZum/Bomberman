@@ -141,7 +141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2100916546}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &186680760
 TilemapRenderer:
@@ -3572,7 +3572,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2100916546}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!66 &527085947
 CompositeCollider2D:
@@ -4761,6 +4761,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fb34651d65cfa4dbbcea75aea78f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tilemap: {fileID: 527085951}
+  bombPrefab: {fileID: 1006892041143056, guid: cf5d3b91fd5b21f45a09648b8c96a58a, type: 2}
 --- !u!4 &1551062565
 Transform:
   m_ObjectHideFlags: 0
@@ -4864,6 +4866,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2100916546}
   - component: {fileID: 2100916545}
+  - component: {fileID: 2100916547}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -4892,8 +4895,24 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 186680759}
   - {fileID: 527085946}
+  - {fileID: 186680759}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100916547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2100916544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1dea62e81869242b9db63a84e99ffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemap: {fileID: 527085951}
+  wallTile: {fileID: 11400000, guid: dd221daf9de1c624b82c1f90bda93bae, type: 2}
+  destructibleTile: {fileID: 11400000, guid: f5cead61b9ade294eaef2b42ad349148, type: 2}
+  explosionPrefab: {fileID: 1566849422924928, guid: b28e4fc74ab5fb846b68a1d13048e89d,
+    type: 2}
