@@ -4771,6 +4771,8 @@ MonoBehaviour:
   vel: 0.03
   tilemap: {fileID: 527085951}
   cell: {fileID: 0}
+  wallTile: {fileID: 11400000, guid: dd221daf9de1c624b82c1f90bda93bae, type: 2}
+  destructibleTile: {fileID: 11400000, guid: f5cead61b9ade294eaef2b42ad349148, type: 2}
 --- !u!212 &1249171613
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4822,9 +4824,9 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1249171611}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -4877,6 +4879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 527085951}
   bombPrefab: {fileID: 1006892041143056, guid: cf5d3b91fd5b21f45a09648b8c96a58a, type: 2}
+  player: {fileID: 1249171611}
 --- !u!4 &1551062565
 Transform:
   m_ObjectHideFlags: 0

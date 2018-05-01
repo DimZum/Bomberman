@@ -7,6 +7,7 @@ public class MapDestroyer : MonoBehaviour {
 
     public Tilemap tilemap;
 
+    Tile tile;
     public Tile wallTile;
     public Tile destructibleTile;
 

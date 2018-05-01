@@ -6,31 +6,61 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour {
 
     public Vector3 pos;
-    public float vel = .05f;
+    public Vector3 vel_x = new Vector3(1, 0, 0);
+    public Vector3 vel_y = new Vector3(0, 1, 0);
 
     public Tilemap tilemap;
-    public Tile cell;
+    public Tile wallTile;
+    public Tile destructibleTile;
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
         pos = transform.position;
 
-		if (Input.GetKey(KeyCode.W)) {
-            pos.y += vel;
+        // UP
+		if (Input.GetKeyDown(KeyCode.W)) {
+            if (HandleMoveAttempt(pos, vel_y)) {
+                pos += vel_y;
+            }
         }
 
-        if (Input.GetKey(KeyCode.A)) {
-            pos.x -= vel;
+        // LEFT
+        if (Input.GetKeyDown(KeyCode.A)) {
+            if (HandleMoveAttempt(pos, -vel_x)) {
+                pos -= vel_x;
+            }
         }
 
-        if (Input.GetKey(KeyCode.S)) {
-            pos.y -= vel;
+        // DOWN
+        if (Input.GetKeyDown(KeyCode.S)) {
+            if (HandleMoveAttempt(pos, -vel_y)) {
+                pos -= vel_y;
+            }
         }
 
-        if (Input.GetKey(KeyCode.D)) {
-            pos.x += vel;
+        // RIGHT
+        if (Input.GetKeyDown(KeyCode.D)) {
+            if (HandleMoveAttempt(pos, vel_x)) {
+                pos += vel_x;
+            }
         }
 
         transform.SetPositionAndRotation(pos, Quaternion.identity);
+    }
+
+    // Collision detection
+    bool HandleMoveAttempt(Vector3 pos, Vector3 dir) {
+        Vector3Int cell = tilemap.WorldToCell(pos + dir);
+        Tile tile = tilemap.GetTile<Tile>(cell);
+
+        if (tile == wallTile) {
+            return false;
+        }
+
+        if (tile == destructibleTile) {
+            return false;
+        }
+
+        return true;
     }
 }
