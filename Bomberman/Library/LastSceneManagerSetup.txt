@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Bomberman.unity
-  isLoaded: 1
-  isActive: 1
